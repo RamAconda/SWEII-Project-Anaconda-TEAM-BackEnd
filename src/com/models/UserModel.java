@@ -201,6 +201,26 @@ public class UserModel {
         return null;
 
     }
+    
+	public static ArrayList<String> get_followers(String email){
+		ArrayList<String> followers = new ArrayList<>();
+		try{
+			Connection conn = DBConnection.getActiveConnection();
+			String sql = "SELECT follower FROM follow WHERE followed = ?" ;
+			PreparedStatement stmt;
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, email);
+				ResultSet rs = stmt.executeQuery();
+				while(rs.next()){
+					followers.add(rs.getString(1));
+				}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return followers;
+	}
+
+
 
 
 }
