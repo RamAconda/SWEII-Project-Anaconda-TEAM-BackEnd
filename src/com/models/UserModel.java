@@ -173,6 +173,34 @@ public class UserModel {
 		}
 		return false;
 	}
+	
+
+    public static UserModel GetLocation(String email, String pass)
+    {
+        try {
+            Connection conn = DBConnection.getActiveConnection();
+            String sql = "Select * from users where `email` = ? and `password` = ?";
+            PreparedStatement stmt;
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, pass);
+            ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				UserModel user = new UserModel();
+		
+				user.name = rs.getString("name");
+				user.lat = rs.getDouble("lat");
+				user.lon = rs.getDouble("long");
+				return user;
+			}
+			return null;
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+
+    }
 
 
 }

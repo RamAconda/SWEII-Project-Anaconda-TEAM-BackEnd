@@ -93,6 +93,19 @@ public class Services {
 				
 	}
 
+    @POST
+	@Path("/Location")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String Location(@FormParam("email") String email,
+			@FormParam("pass") String pass) {
+		UserModel user = UserModel.GetLocation(email, pass);
+		JSONObject json = new JSONObject();
+		json.put("name", user.getName());
+		json.put("lat", user.getLat());
+		json.put("long", user.getLon());
+		return json.toJSONString();
+	}
+
 
 	@GET
 	@Path("/")
