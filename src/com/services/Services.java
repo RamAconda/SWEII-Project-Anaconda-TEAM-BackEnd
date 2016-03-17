@@ -75,7 +75,24 @@ public class Services {
 		json.put("status", status ? 1 : 0);
 		return json.toJSONString();
 	}
+	@POST
+	@Path("/unfollow")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Boolean unfollow(@FormParam("Follower_email") String follower_email , @FormParam("pass") String pass ,
+			@FormParam("Followed_email") String followed_email){
+				return UserModel.unfollow(follower_email, pass, followed_email);
+	}	
 	
+	
+	@POST
+	@Path("/follow")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Boolean follow(@FormParam("Follower_email") String follower_email , @FormParam("pass") String pass ,
+			@FormParam("Followed_email") String followed_email){
+				return UserModel.follow(follower_email, pass, followed_email);
+				
+	}
+
 
 	@GET
 	@Path("/")

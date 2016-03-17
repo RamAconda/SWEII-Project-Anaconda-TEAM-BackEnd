@@ -143,7 +143,36 @@ public class UserModel {
 		return false;
 	}
 	
-	
+	public static boolean follow(String follower_email , String pass , String followed_email){
+		try{
+			Connection conn = DBConnection.getActiveConnection();
+			String sql = "INSERT INTO follow values(?,?)" ;
+			PreparedStatement stmt;
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, follower_email);
+				stmt.setString(2, followed_email);
+				stmt.executeUpdate();
+				return true;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public static boolean unfollow(String follower_email , String pass , String followed_email){
+		try{
+			Connection conn = DBConnection.getActiveConnection();
+			String sql = "DELETE FROM follow WHERE follower = ? and followed = ?" ;
+			PreparedStatement stmt;
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, follower_email);
+				stmt.setString(2, followed_email);
+				stmt.executeUpdate();
+				return true;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 
 }
