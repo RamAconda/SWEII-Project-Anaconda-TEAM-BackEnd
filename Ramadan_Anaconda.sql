@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: se2firstapp
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.6.28-0ubuntu0.15.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,7 +35,7 @@ CREATE TABLE `follow` (
 
 LOCK TABLES `follow` WRITE;
 /*!40000 ALTER TABLE `follow` DISABLE KEYS */;
-INSERT INTO `follow` VALUES ('m.samir','mhmdsamir92@gmail.com'),('mhmdsamir1@gmail.com','mhmdsamir92@gmail.com');
+INSERT INTO `follow` VALUES ('m.samir','mhmdsamir92@gmail.com'),('mhmdsamir1@gmail.com','mhmdsamir92@gmail.com'),('mhmdsamir1@gmail.com','youtube'),('mhmdsamir91@gmail.com','youtube'),('mhmdsamir@gmail.com','youtube');
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +81,7 @@ CREATE TABLE `users` (
   `long` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `last_place_id` (`lat`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mohamed','mhmdsamir@gmail.com','123',30.0310036,31.2127736),(2,'mohamed','mhmdsamir1@gmail.com','123',0,NULL),(3,'mohamed','mhmdsamir91@gmail.com','123456789',NULL,NULL),(4,'mohamed','mhmdsamir92@gmail.com','123456789',NULL,NULL),(5,'mohamed','m.samir','123456789',30,31),(6,'Omar','omar','123',NULL,NULL),(7,'Mohamed Ramadan','rmadanfci20130197@gmial.com','123456789',30.0310036,31.2127736);
+INSERT INTO `users` VALUES (1,'mohamed','mhmdsamir@gmail.com','123',30.0310036,31.2127736),(2,'mohamed','mhmdsamir1@gmail.com','123',0,NULL),(3,'mohamed','mhmdsamir91@gmail.com','123456789',NULL,NULL),(4,'mohamed','mhmdsamir92@gmail.com','123456789',NULL,NULL),(5,'mohamed','m.samir','123456789',30,31),(6,'Omar','omar','123',NULL,NULL),(8,'Ramadan Anaconda','rmadanfci20130197@gmail.com','01276038376',30.145361400000002,31.3188648),(9,'Mohamed Khalid','khalifa@gmail.com','01276038376',NULL,NULL),(10,'facebook','facebook@gmail.com','1111',NULL,NULL),(18,'Ramadan','Ramadan','123',30.145349699999997,31.3188417),(19,'yoytube','youtube','1111',30.145336800000003,31.318835099999994);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-17  2:24:46
+-- Dump completed on 2016-03-27  1:43:01

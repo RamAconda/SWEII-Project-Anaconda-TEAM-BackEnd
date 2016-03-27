@@ -109,17 +109,17 @@ public class Services {
 	@POST
 	@Path("/followers")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String Follower(@FormParam("email") String email , @FormParam("pass") String pass) throws SQLException {
+	public String Follower(@FormParam("email") String email /*, @FormParam("pass") String pass*/) throws SQLException {
 		ArrayList<String> followers = new ArrayList<>();
 		JSONObject object = new JSONObject();
-		if(UserModel.login(email, pass) != null){
+		//if(UserModel.login(email, pass) != null){
 			followers = UserModel.get_followers(email);
 			for(int i = 0 ; i < followers.size() ; i++){
 				object.put("follower #" +(i+1), followers.get(i));
 			}
 			
 			
-		}
+		//}
 		return object.toJSONString();
 	}
 
