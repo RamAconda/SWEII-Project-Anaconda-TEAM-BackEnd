@@ -21,7 +21,7 @@ import org.json.simple.JSONObject;
 import com.models.DBConnection;
 import com.models.UserModel;
 
-@Path("/")
+@Path("/startingServices")
 public class Services {
 
 	/*
@@ -65,63 +65,7 @@ public class Services {
 		return json.toJSONString();
 	}
 	
-	@POST
-	@Path("/updatePosition")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String updatePosition(@FormParam("id") String id,
-			@FormParam("lat") String lat, @FormParam("long") String lon) {
-		Boolean status = UserModel.updateUserPosition(Integer.parseInt(id), Double.parseDouble(lat), Double.parseDouble(lon));
-		JSONObject json = new JSONObject();
-		json.put("status", status ? 1 : 0);
-		return json.toJSONString();
-	}
-	@POST
-	@Path("/unfollow")
-	@Produces(MediaType.TEXT_PLAIN)
-	public Boolean unfollow(@FormParam("Follower_email") String follower_email , @FormParam("pass") String pass ,
-			@FormParam("Followed_email") String followed_email){
-				return UserModel.unfollow(follower_email, pass, followed_email);
-	}	
-	
-	
-	@POST
-	@Path("/follow")
-	@Produces(MediaType.TEXT_PLAIN)
-	public Boolean follow(@FormParam("Follower_email") String follower_email , @FormParam("pass") String pass ,
-			@FormParam("Followed_email") String followed_email){
-				return UserModel.follow(follower_email, pass, followed_email);
-				
-	}
 
-    @POST
-	@Path("/Location")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String Location(@FormParam("email") String email,
-			@FormParam("pass") String pass) {
-		UserModel user = UserModel.GetLocation(email, pass);
-		JSONObject json = new JSONObject();
-		json.put("name", user.getName());
-		json.put("lat", user.getLat());
-		json.put("long", user.getLon());
-		return json.toJSONString();
-	}
-
-	@POST
-	@Path("/followers")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String Follower(@FormParam("email") String email /*, @FormParam("pass") String pass*/) throws SQLException {
-		ArrayList<String> followers = new ArrayList<>();
-		JSONObject object = new JSONObject();
-		//if(UserModel.login(email, pass) != null){
-			followers = UserModel.get_followers(email);
-			for(int i = 0 ; i < followers.size() ; i++){
-				object.put("follower #" +(i+1), followers.get(i));
-			}
-			
-			
-		//}
-		return object.toJSONString();
-	}
 
 	@GET
 	@Path("/")
