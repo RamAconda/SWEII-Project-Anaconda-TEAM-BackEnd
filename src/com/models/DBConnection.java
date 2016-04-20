@@ -12,7 +12,8 @@ public class DBConnection {
 		String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		System.out.println(host);*/
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");		
+			
 //			connection = DriverManager
 //					.getConnection("jdbc:mysql://127.4.191.2:3306/ramadan?"
 //							+ "user=adminQWN9MFc&password=xB2nKZHz-pBg&characterEncoding=utf8");

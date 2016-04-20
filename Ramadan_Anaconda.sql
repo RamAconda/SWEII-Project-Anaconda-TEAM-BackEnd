@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: localhost    Database: se2firstapp
+-- Host: 127.0.0.1    Database: se2project
 -- ------------------------------------------------------
--- Server version	5.6.28-0ubuntu0.15.10.1
+-- Server version	5.7.10-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,7 +53,7 @@ CREATE TABLE `places` (
   `lat` double NOT NULL,
   `long` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,35 @@ CREATE TABLE `places` (
 
 LOCK TABLES `places` WRITE;
 /*!40000 ALTER TABLE `places` DISABLE KEYS */;
+INSERT INTO `places` VALUES (1,'FCI','sdafaf',1223,1221),(2,'FCI1','Ramadan_Anaconda',1212,12126),(3,'FCI122','Ramadan_Anaconda',1212,12126),(4,'FCI1223','Ramadan_Anaconda3',1222,12226),(5,'FCI1223','Ramadan_Anaconda3',1222,12226),(6,'FCI1223','Ramadan_Anaconda3',1222,12226),(7,'cairo','has too many faculty ',0,123458),(8,'FCICU','Faculty of computer and informantion',0,1234);
 /*!40000 ALTER TABLE `places` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `saveplaces`
+--
+
+DROP TABLE IF EXISTS `saveplaces`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `saveplaces` (
+  `userid` int(11) NOT NULL,
+  `placeid` int(11) NOT NULL,
+  KEY `placeid` (`placeid`),
+  KEY `userid` (`userid`),
+  CONSTRAINT `saveplaces_ibfk_1` FOREIGN KEY (`placeid`) REFERENCES `places` (`id`),
+  CONSTRAINT `saveplaces_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `saveplaces`
+--
+
+LOCK TABLES `saveplaces` WRITE;
+/*!40000 ALTER TABLE `saveplaces` DISABLE KEYS */;
+INSERT INTO `saveplaces` VALUES (1,1),(2,2),(3,2),(1,2),(1,2),(1,2),(1,2),(3,2),(2,2),(2,2),(2,2),(8,2),(8,2),(4,2),(4,2),(4,2),(4,2),(2,2),(1,2),(1,2),(1,2),(1,2),(1,2),(1,2),(1,2),(2,2),(2,2),(5,2),(5,2),(5,2),(5,2),(5,2),(5,2),(5,2),(5,2),(5,2),(5,2),(2,5),(5,2);
+/*!40000 ALTER TABLE `saveplaces` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -103,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-27 19:53:15
+-- Dump completed on 2016-04-20 18:08:59
